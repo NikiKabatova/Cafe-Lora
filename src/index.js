@@ -77,9 +77,15 @@ const layerItems = [
   },
 ];
 
-layerItems.forEach((item) =>
-  document.querySelector('.drinks-list').appendChild(Drink(item)),
-);
+fetch('https://apps.kodim.cz/daweb/cafelora/api/drinks')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    data.results.forEach((item) =>
+      document.querySelector('.drinks-list').appendChild(Drink(item)),
+    );
+  });
 
 // zakomentovana komponenta
 // layerItems.forEach((item) => {
