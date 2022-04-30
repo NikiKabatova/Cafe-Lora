@@ -244,6 +244,7 @@ nav a:hover {
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
+  position: relative;
 }
 
 .contacts {
@@ -312,4 +313,14 @@ nav a:hover {
   .drink {
     width: 33.333%;
   }
+}
+
+.cafe__description {
+  padding: 50px;
+  top: calc(100% / 2);
+  text-align: center;
+  position: absolute;
+  font-size: 20px;
+  backdrop-filter: blur(10px);
+  margin: 0 50px;
 }
