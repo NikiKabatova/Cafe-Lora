@@ -1,4 +1,7 @@
 import './style.css';
+
+import { Ingredients } from './Layer/index.js';
+
 const navElm = document.querySelector('nav');
 const openMenu = () => {
   navElm.classList.toggle('nav-closed');
@@ -20,3 +23,26 @@ orderBtn.addEventListener('click', () => {
   const ordered = cupSelected.classList.toggle('drink__cup--selected');
   orderBtn.textContent = ordered ? 'Zrušit' : 'Objednat';
 });
+
+const ingredientsItems = [
+  {
+    color: '#feeeca',
+    label: 'mléčná pěna',
+  },
+  {
+    color: '#fed7b0',
+    label: 'teplé mléko',
+  },
+  {
+    color: '#613916',
+    label: 'espresso',
+  },
+];
+
+const drinkInfoElm = document.querySelector('.drink__info');
+
+ingredientsItems.forEach((item) => {
+  return (drinkInfoElm.innerHTML += Ingredients(item));
+});
+
+//for (let i=0; i < ingredientsItems.length ; i++ )
