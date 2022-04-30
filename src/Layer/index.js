@@ -1,5 +1,6 @@
 import './style.css';
-export const Ingredients = (props) => {
+
+export const Layer = (props) => {
   const { color, label } = props;
   return `
   <div class="layer">

@@ -1,6 +1,6 @@
 import './style.css';
-
-import { Ingredients } from './Layer/index.js';
+import { Drink } from './Drink/index.js';
+import { Layer } from './Layer/index.js';
 
 const navElm = document.querySelector('nav');
 const openMenu = () => {
@@ -16,33 +16,29 @@ listOfLinks.forEach((item) => {
   item.addEventListener('click', closedMenu);
 });
 
-const orderBtn = document.querySelector('.order-btn');
-const cupSelected = document.querySelector('.drink__cup');
-
-orderBtn.addEventListener('click', () => {
-  const ordered = cupSelected.classList.toggle('drink__cup--selected');
-  orderBtn.textContent = ordered ? 'Zrušit' : 'Objednat';
-});
-
-const ingredientsItems = [
+const layerItems = [
   {
-    color: '#feeeca',
-    label: 'mléčná pěna',
-  },
-  {
-    color: '#fed7b0',
-    label: 'teplé mléko',
-  },
-  {
-    color: '#613916',
-    label: 'espresso',
+    id: 'romano',
+    name: 'Romano',
+    ordered: false,
+    layers: [
+      {
+        color: '#fbdf5b',
+        label: 'citrón',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
+    image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
   },
 ];
 
-const drinkInfoElm = document.querySelector('.drink__info');
+const drinkELm = document.querySelector('.drinks-list');
+drinkELm.appendChild(Drink(layerItems[0]));
 
-ingredientsItems.forEach((item) => {
-  return (drinkInfoElm.innerHTML += Ingredients(item));
-});
-
-//for (let i=0; i < ingredientsItems.length ; i++ )
+// zakomentovana komponenta
+// layerItems.forEach((item) => {
+//   return (drinkInfoElm.innerHTML += Layer(item));
+// });
